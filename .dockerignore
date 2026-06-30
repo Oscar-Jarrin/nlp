@@ -1,0 +1,7 @@
+enunciado y notas/
+target/
+.bsp/
+.metals/
+.vscode/
+.idea/
+*.md
