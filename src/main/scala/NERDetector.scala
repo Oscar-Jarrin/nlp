@@ -13,7 +13,8 @@ object NERDetector {
     val stdout = new StringBuilder
     val stderr = new StringBuilder
 
-    val exitCode = (Process("python3 ner_detector.py") #< inputStream) !
+    val pythonCmd = if (System.getProperty("os.name").toLowerCase.contains("win")) "python" else "python3"
+    val exitCode = (Process(s"$pythonCmd ner_detector.py") #< inputStream) !
       ProcessLogger(
         line => { stdout.append(line); stdout.append("\n") },
         line => { stderr.append(line); stderr.append("\n") }
